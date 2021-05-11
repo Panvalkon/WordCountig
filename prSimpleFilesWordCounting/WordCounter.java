@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.StringJoiner;
