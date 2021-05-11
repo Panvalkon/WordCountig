@@ -47,7 +47,7 @@ public class WordCounterSig extends WordCounter {
 			readNonSigWords(sc, del);
 		}
 	}
-	
+
 	@Override
 	protected void include(String word) {
 		int pos = findNoSid(word);
@@ -56,11 +56,9 @@ public class WordCounterSig extends WordCounter {
 		}
 	}
 
-
 	private void readNonSigWords(Scanner sc, String del) throws IOException {
 		this.nonSigWordsNum = 0;
 		while (sc.hasNext()) {
-			//sc.useLocale(Locale.ENGLISH);
 			sc.useDelimiter(del);
 			if (this.nonSignificant.length == nonSigWordsNum) {
 				nonSignificant = Arrays.copyOf(nonSignificant, nonSignificant.length * 2);
@@ -70,7 +68,7 @@ public class WordCounterSig extends WordCounter {
 		}
 		nonSignificant = Arrays.copyOf(nonSignificant, nonSigWordsNum);
 	}
-	
+
 	private int findNoSid(String word) {
 		int pos = 0;
 		while (pos < nonSignificant.length && !nonSignificant[pos].equalsIgnoreCase(word)) {
@@ -78,8 +76,8 @@ public class WordCounterSig extends WordCounter {
 		}
 		return pos == nonSignificant.length ? -1 : pos;
 	}
-	
-	private void includeNoSig(String nonSigWord){
+
+	private void includeNoSig(String nonSigWord) {
 		this.nonSignificant[nonSigWordsNum++] = nonSigWord;
 	}
 
@@ -89,5 +87,4 @@ public class WordCounterSig extends WordCounter {
 		}
 		return nonSig;
 	}
-
 }
