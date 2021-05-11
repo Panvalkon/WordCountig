@@ -3,6 +3,7 @@
  */
 package prSimpleFilesWordCounting;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Locale;
@@ -42,7 +43,7 @@ public class WordCounterSig extends WordCounter {
 	}
 
 	private void readNonSigFile(String filNoSig, String del) throws IOException {
-		try (Scanner sc = new Scanner(filNoSig)) {
+		try (Scanner sc = new Scanner(new File(filNoSig))) {
 			readNonSigWords(sc, del);
 		}
 	}
@@ -59,7 +60,7 @@ public class WordCounterSig extends WordCounter {
 	private void readNonSigWords(Scanner sc, String del) throws IOException {
 		this.nonSigWordsNum = 0;
 		while (sc.hasNext()) {
-			sc.useLocale(Locale.ENGLISH);
+			//sc.useLocale(Locale.ENGLISH);
 			sc.useDelimiter(del);
 			if (this.nonSignificant.length == nonSigWordsNum) {
 				nonSignificant = Arrays.copyOf(nonSignificant, nonSignificant.length * 2);
