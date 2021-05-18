@@ -58,13 +58,17 @@ public class WordCounterSig extends WordCounter {
 
 	private void readNonSigWords(Scanner sc, String del) throws IOException {
 		this.nonSigWordsNum = 0;
-		while (sc.hasNext()) {
-			sc.useDelimiter(del);
-			if (this.nonSignificant.length == nonSigWordsNum) {
-				nonSignificant = Arrays.copyOf(nonSignificant, nonSignificant.length * 2);
+		while (sc.hasNextLine()) {
+			try (Scanner sc2 = new Scanner(sc.nextLine())){
+				sc2.useDelimiter(del);
+				while(sc2.hasNext()) {
+					if (this.nonSignificant.length == nonSigWordsNum) {
+						nonSignificant = Arrays.copyOf(nonSignificant, nonSignificant.length * 2);
+					}
+					this.nonSignificant[nonSigWordsNum] = sc2.next().toUpperCase();
+					nonSigWordsNum++;
+				}
 			}
-			this.nonSignificant[nonSigWordsNum] = sc.next().toUpperCase();
-			nonSigWordsNum++;
 		}
 		nonSignificant = Arrays.copyOf(nonSignificant, nonSigWordsNum);
 	}

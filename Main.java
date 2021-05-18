@@ -63,6 +63,7 @@ public class Main {
 			contadorSigFich.includeAllFromFile("datos.txt", delimitadores);
 			System.out.println(contador + "\n");
 			System.out.println(contadorSigFich + "\n");
+			contadorSigFich.presentWords("salida-quijote_new.txt");
 			// display methods
 			PrintWriter pw = new PrintWriter(System.out, true);
 			contador.presentWords(pw);

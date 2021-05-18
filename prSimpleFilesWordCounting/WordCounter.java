@@ -13,6 +13,8 @@ import java.util.StringJoiner;
 
 /**
  * @author Illya Roz.
+ * Has array of words each one is stored in an array of type WordInText
+ * Has two constructors. Default one and one that define the array size.
  */
 public class WordCounter {
 	private final static int INITIAL_SIZE = 10;
